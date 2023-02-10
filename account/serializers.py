@@ -38,3 +38,13 @@ class SignUpSerializer(serializers.ModelSerializer):
     
 
 
+class CurrentUserPostSerializer(serializers.ModelSerializer):
+    post=serializers.HyperlinkedRelatedField(many=True,view_name="post_detail",queryset=CustomUser.objects.all())
+
+    class Meta:
+        model=CustomUser
+        fields=['id','username','email','post']
+
+    
+
+
